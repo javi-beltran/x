@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrusel de Imágenes</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .carousel {
+            position: relative;
+            width: 80%;
+            /*width: 100vh;*/
+            max-width: 600px;
+            overflow: hidden;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .carousel .buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .carousel button {
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="carousel">
+        <img src="https://telegra.ph/file/ac77ca064119c637e200f.jpg" alt="Imagen 1">
+        <img src="https://telegra.ph/file/90d2344153b06aa16a9e9.jpg" alt="Imagen 2" style="display: none;">
+        <img src="https://telegra.ph/file/efc553b269b986e7c1663.jpg" alt="Imagen 3" style="display: none;">
+        <img src="https://telegra.ph/file/86383296b04311bd853ac.jpg" alt="Imagen 4" style="display: none;">
+        <img src="https://telegra.ph/file/ffa6911d0d55d3e70922e.jpg" alt="Imagen 5" style="display: none;">
+        <!-- <img src="https://telegra.ph/file/fbdd715afc4e45aab8331.jpg" alt="Imagen 6" style="display: none;"> -->
+        <img src="https://telegra.ph/file/fbdd715afc4e45aab8331.jpg" alt="Imagen 7" style="display: none;">
+        <img src="https://telegra.ph/file/07d49329d9f012342855f.jpg" alt="Imagen 8" style="display: none;">
+        <img src="https://telegra.ph/file/c55343a0398eee4a9ed53.jpg" alt="Imagen 9" style="display: none;">
+        <img src="https://telegra.ph/file/284b56453172df5b697ef.jpg" alt="Imagen 10" style="display: none;">
+        <img src="https://telegra.ph/file/2923ebe226969b2d9d774.jpg" alt="Imagen 11" style="display: none;">
+        <img src="https://telegra.ph/file/edfc297b35fae82f15e0b.jpg" alt="Imagen 12" style="display: none;">
+        <!-- <img src="" alt="Imagen 13" style="display: none;">
+        <img src="" alt="Imagen 14" style="display: none;"> -->
+        <div class="buttons">
+            <button id="prev">
+                < Anterior</button>
+                    <button id="next">Siguiente ></button>
+        </div>
+    </div>
+
+    <script>
+        const images = document.querySelectorAll('.carousel img');
+        let currentIndex = 0;
+
+        document.getElementById('next').addEventListener('click', () => {
+            images[currentIndex].style.display = 'none';
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].style.display = 'block';
+        });
+
+        document.getElementById('prev').addEventListener('click', () => {
+            images[currentIndex].style.display = 'none';
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            images[currentIndex].style.display = 'block';
+        });
+    </script>
+</body>
+
+</html>
