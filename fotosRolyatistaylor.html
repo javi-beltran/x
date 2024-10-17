@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrusel de Imágenes</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .carousel {
+            position: relative;
+            width: 80%;
+            /*width: 100vh;*/
+            max-width: 600px;
+            overflow: hidden;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .carousel .buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .carousel button {
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="carousel">
+        <!-- <img src="https://pixeldrain.com/api/file/AKokDEbD" alt="Imagen 1">
+        <img src="https://pixeldrain.com/api/file/Cforj9s4" alt="Imagen 2" style="scale: 0.5;display: none;">
+        <img src="https://pixeldrain.com/api/file/aCH59SXM" alt="Imagen 3" style="display: none;"> -->
+    
+        <img src="https://pixeldrain.com/api/file/Y8Sqpndc" alt="Imagen 1 "> 
+<img src="https://pixeldrain.com/api/file/DpEP13Xw" alt="Imagen 2 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/mJbZiGe7" alt="Imagen 3 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/KWfdAEbh" alt="Imagen 4 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/Z254Ht5b" alt="Imagen 5 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/pQYA1F6H" alt="Imagen 6 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/jCFAnXYn" alt="Imagen 7 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/zdi6bRF5" alt="Imagen 8 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/mX1XDmjf" alt="Imagen 9 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/T3ZAveBb" alt="Imagen 10 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/kWX2ZqFd" alt="Imagen 11 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/CgTw1fEy" alt="Imagen 12 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/9rrxVDk8" alt="Imagen 13 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/pWPm841L" alt="Imagen 14 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/jp14UbzF" alt="Imagen 15 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/VQLsWu6f" alt="Imagen 16 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/BQCAPa1N" alt="Imagen 17 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/fFQc8RP8" alt="Imagen 18 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/Z7nBENub" alt="Imagen 19 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/fjPpPHha" alt="Imagen 20 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/VWuAcCdc" alt="Imagen 21 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/Gra8Bnnh" alt="Imagen 22 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/BWYUxhdR" alt="Imagen 23 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/EcpeoYop" alt="Imagen 24 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/fjDffVAa" alt="Imagen 25 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/8PvVh68L" alt="Imagen 26 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/ToxNhbyf" alt="Imagen 27 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/gCuGsCjC" alt="Imagen 28 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/t4JieM3y" alt="Imagen 29 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/nimZDX83" alt="Imagen 30 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/zh4KzW9w" alt="Imagen 31 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/RfouZ2W2" alt="Imagen 32 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/mcG99bL5" alt="Imagen 33 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/g5LPWE1z" alt="Imagen 34 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/w4PLbRBg" alt="Imagen 35 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/TJeZNSsz" alt="Imagen 36 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/mLUzxgex" alt="Imagen 37 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/BxRVSJQb" alt="Imagen 38 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/Gh6Pc1FS" alt="Imagen 39 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/Qdn7aKFQ" alt="Imagen 40 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/d72X1CWh" alt="Imagen 41 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/jXSFNJ1x" alt="Imagen 42 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/ZZHRVRVy" alt="Imagen 43 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/wUkxa3wU" alt="Imagen 44 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/tcktL9UD" alt="Imagen 45 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/Y8EpJQfg" alt="Imagen 46 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/VqAAZrEG" alt="Imagen 47 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/qUTyNuhB" alt="Imagen 48 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/gwtzQJd5" alt="Imagen 49 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/pxYcNN1M" alt="Imagen 50 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/8nYW2cTx" alt="Imagen 51 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/gcsGsy6j" alt="Imagen 52 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/8YtcWHUX" alt="Imagen 53 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/UNimFASa" alt="Imagen 54 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/9pHP1xMW" alt="Imagen 55 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/jPfmN7nx" alt="Imagen 56 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/cUwwgLiP" alt="Imagen 57 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/qE2XWhZC" alt="Imagen 58 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/9qGfJSoD" alt="Imagen 59 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/cM3ASmUF" alt="Imagen 60 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/7FhbBb9o" alt="Imagen 61 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/NEABMJ6j" alt="Imagen 62 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/JdrRFx1y" alt="Imagen 63 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/JBbmZx5G" alt="Imagen 64 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/83yoGsK7" alt="Imagen 65 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/zogS7XYp" alt="Imagen 66 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/pMAm4tvD" alt="Imagen 67 " style="display: none;"> 
+<img src="https://pixeldrain.com/api/file/ZLSre9vR" alt="Imagen 68 " style="display: none;"> 
+
+        <div class="buttons">
+            <button id="prev">
+                < Anterior</button>
+                    <button id="next">Siguiente ></button>
+        </div>
+    </div>
+       
+    <script>
+        const images = document.querySelectorAll('.carousel img');
+        let currentIndex = 0;
+
+        document.getElementById('next').addEventListener('click', () => {
+            images[currentIndex].style.display = 'none';
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].style.display = 'block';
+        });
+
+        document.getElementById('prev').addEventListener('click', () => {
+            images[currentIndex].style.display = 'none';
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            images[currentIndex].style.display = 'block';
+        });
+    </script>
+</body>
+
+</html>
