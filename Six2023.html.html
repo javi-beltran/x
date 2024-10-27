@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Samurai x (2023)</title>
+    <style>
+        /*.video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+            /*height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+        }*/
+        .video-container iframe {
+            position: absolute;
+          /*  top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;*/
+        }
+        .buttons {
+            margin-top: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .url-display {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="buttons">
+        <button onclick="prevSlide()">Anterior</button>
+        <button onclick="nextSlide()">Siguiente</button>
+    </div>
+    <div class="url-display">
+        <p id="current-url">URL: https://example1.com</p>
+    </div>
+    <!-- <div class="video-container">
+        <iframe id="slide" src="https://example1.com" frameborder="0" allowfullscreen></iframe>
+    </div> -->
+    <!-- <div class="video-container"> -->
+    <div >
+        <!-- <iframe id="slide" src="https://example1.com" frameborder="0" allowfullscreen></iframe> -->
+        <!-- <iframe id="slide" src="https://example1.com" frameborder="0" allowfullscreen></iframe> -->
+        <iframe id="slide"width="560" height="315" src="https://www.youtube.com/embed/pQK23-IUkqc?si=JlJv6ee-OBVjPBjJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <script>
+        const sites = [
+           "https://pixeldrain.com/api/file/4wehCPJm",
+"https://pixeldrain.com/api/file/Lc1QDzoc",
+"https://pixeldrain.com/api/file/Gte7ZHnL",
+"https://pixeldrain.com/api/file/ETh5WC5u",
+"https://pixeldrain.com/api/file/arPoeVLp",
+"https://pixeldrain.com/api/file/vLNqcP3m",
+"https://pixeldrain.com/api/file/U4LuVMn4",
+"https://pixeldrain.com/api/file/BLx1EKbk",
+"https://pixeldrain.com/api/file/Wub3xqcD",
+"https://pixeldrain.com/api/file/6fsvWso2",
+"https://pixeldrain.com/api/file/kve814Gj",
+"https://pixeldrain.com/api/file/2anZ2FkD",
+"https://pixeldrain.com/api/file/o2HgvHTB",
+"https://pixeldrain.com/api/file/DvsvdWRk",
+"https://pixeldrain.com/api/file/WrnBxzcc",
+"https://pixeldrain.com/api/file/dHviKooQ",
+"https://pixeldrain.com/api/file/i1Mnf6pz",
+"https://pixeldrain.com/api/file/dSeyVUuk",
+"https://pixeldrain.com/api/file/buPo8iY7",
+"https://pixeldrain.com/api/file/CioMk6e5",
+"https://pixeldrain.com/api/file/jXDbkNMd",
+"https://pixeldrain.com/api/file/fmX5xDjC",
+"https://pixeldrain.com/api/file/qALazAQT",
+"https://pixeldrain.com/api/file/bQtbuHWF",
+"https://pixeldrain.com/api/file/yhXQBND2",
+        ];
+
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            const iframe = document.getElementById('slide');
+            iframe.src = sites[index];
+            document.getElementById('current-url').innerText = 'URL: ' + sites[index];
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % sites.length;
+            showSlide(currentIndex);
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + sites.length) % sites.length;
+            showSlide(currentIndex);
+        }
+
+        window.addEventListener("message", function(event) {
+            if (event.data === "resize-iframe") {
+                document.getElementById("slide").style.height = event.source.document.body.scrollHeight + "px";
+            }
+        });
+
+        document.getElementById('slide').addEventListener('load', function() {
+            this.contentWindow.postMessage("resize-iframe", "*");
+        });
+    </script>
+</body>
+</html>
+
+<!-- 
+"https://www.msn.com/es-ar",
+"https://www.google.com/search?q=google&rlz=1C1ONGR_esAR1017AR1017&oq=goo&gs_lcrp=EgZjaHJvbWUqBwgBEAAYjwIyBggAEEUYOTIHCAEQABiPAjIHCAIQABiPAjIHCAMQABiPAjIGCAQQRRhBMgYIBRBFGEEyBggGEEUYQTIGCAcQRRg80gEIMTg2NGowajSoAgCwAgA&sourceid=chrome&ie=UTF-8",
+"https://pixeldrain.com/api/file/P8PiUKhj",
+"https://pixeldrain.com/api/file/3yRNyvtb",
+"https://pixeldrain.com/api/file/MjXAQvFn",
+"https://pixeldrain.com/api/file/Cpu3AsJe",
+"https://pixeldrain.com/api/file/ELDFzA3E",
+"https://pixeldrain.com/api/file/gmKfYHog",
+"https://pixeldrain.com/api/file/yeLbM5Rs",
+"https://pixeldrain.com/api/file/qFkN1FeJ",
+"https://pixeldrain.com/api/file/skauf8WA",
+"https://pixeldrain.com/api/file/xtjG6Ji5",
+"https://pixeldrain.com/api/file/4R8s9Hdd", -->
