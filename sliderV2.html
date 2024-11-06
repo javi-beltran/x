@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Carrusel de Videos</title>
+    <style>
+        /*.video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+            /*height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+        }*/
+        .video-container iframe {
+            position: absolute;
+          /*  top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;*/
+        }
+        .buttons {
+            margin-top: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .url-display {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body style="background-color: black;">
+        <div class="buttons">
+        <button onclick="prevSlide()">Anterior</button>
+        <button onclick="nextSlide()">Siguiente</button>
+    </div>
+    <div class="url-display">
+        <p id="current-url">URL: https://example1.com</p>
+    </div>
+    <!-- <div class="video-container">
+        <iframe id="slide" src="https://example1.com" frameborder="0" allowfullscreen></iframe>
+    </div> -->
+    <!-- <div class="video-container"> -->
+    <div >
+        <!-- <iframe id="slide" src="https://example1.com" frameborder="0" allowfullscreen></iframe> -->
+        <!-- <iframe id="slide" src="https://example1.com" frameborder="0" allowfullscreen></iframe> -->
+        <iframe id="slide"width="560" height="315" src="https://www.youtube.com/embed/pQK23-IUkqc?si=JlJv6ee-OBVjPBjJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <script>
+        const sites = [
+         "	https://pixeldrain.com/api/file/szFGxojN	"	,
+"	https://pixeldrain.com/api/file/Xp5cybYS	"	,
+"	https://pixeldrain.com/api/file/1tvetQ3B	"	,
+"	https://pixeldrain.com/api/file/XTcyTR3x	"	,
+"	https://pixeldrain.com/api/file/UyK47YTT	"	,
+"	https://pixeldrain.com/api/file/Y5BHSDmp	"	,
+"	https://pixeldrain.com/api/file/A3wYMZgi	"	,
+"	https://pixeldrain.com/api/file/voFAhEkR	"	,
+"	https://pixeldrain.com/api/file/xw7xCF7h	"	,
+"	https://pixeldrain.com/api/file/r1RN9KmJ	"	,
+"	https://pixeldrain.com/api/file/g5ykL9pj	"	,
+"	https://pixeldrain.com/api/file/XuZUssEr	"	,
+"	https://pixeldrain.com/api/file/o4eV4FSW	"	,
+"	https://pixeldrain.com/api/file/3rHm2ucq	"	,
+"	https://pixeldrain.com/api/file/Y2cUoh5D	"	,
+"	https://pixeldrain.com/api/file/GxrjDScP	"	,
+"	https://pixeldrain.com/api/file/XhWj7hUa	"	,
+"	https://pixeldrain.com/api/file/UxwpcjUM	"	,
+"	https://pixeldrain.com/api/file/igfjWZf6	"	,
+"	https://pixeldrain.com/api/file/ZrwAPk5Y	"	,
+"	https://pixeldrain.com/api/file/VeFKVXmU	"	,
+"	https://pixeldrain.com/api/file/M9BkUmWy	"	,
+"	https://pixeldrain.com/api/file/w25iDH79	"	,
+"	https://pixeldrain.com/api/file/7CfLsTwr	"	,
+"	https://pixeldrain.com/api/file/Vix1sAmu	"	,
+"	https://pixeldrain.com/api/file/DgkCoNB6	"	,
+"	https://pixeldrain.com/api/file/DtRbQMoh	"	,
+"	https://pixeldrain.com/api/file/AucXJu8n	"	,
+"	https://pixeldrain.com/api/file/drxd95XD	"	,
+"	https://pixeldrain.com/api/file/npPt2zSX	"	,
+"	https://pixeldrain.com/api/file/xAG2qX16	"	,
+"	https://pixeldrain.com/api/file/Jj3Ghwg6	"	,
+"	https://pixeldrain.com/api/file/Gzf3meTA	"	,
+"	https://pixeldrain.com/api/file/RZ92w9HP	"	,
+"	https://pixeldrain.com/api/file/yat5a92w	"	,
+"	https://pixeldrain.com/api/file/TZmggg1x	"	,
+"	https://pixeldrain.com/api/file/qPc28xWR	"	,
+"	https://pixeldrain.com/api/file/fCJqZQpC	"	,
+"	https://pixeldrain.com/api/file/nkSXGzg7	"	,
+"	https://pixeldrain.com/api/file/uLLUYTqL	"	,
+"	https://pixeldrain.com/api/file/VfZazAdX	"	,
+"	https://pixeldrain.com/api/file/pneqzo5c	"	,
+"	https://pixeldrain.com/api/file/W6PXgFK9	"	,
+"	https://pixeldrain.com/api/file/8w8jmFKM	"	,
+"	https://pixeldrain.com/api/file/xft1tsY3	"	,
+"	https://pixeldrain.com/api/file/XGTccnM8	"	,
+"	https://pixeldrain.com/api/file/Eh6FTzHG	"	,
+"	https://pixeldrain.com/api/file/jKtxAEWB	"	,
+"	https://pixeldrain.com/api/file/MdGVTAjE	"	,
+
+
+        ];
+
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            const iframe = document.getElementById('slide');
+            iframe.src = sites[index];
+            document.getElementById('current-url').innerText = 'URL: ' + sites[index];
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % sites.length;
+            showSlide(currentIndex);
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + sites.length) % sites.length;
+            showSlide(currentIndex);
+        }
+
+        window.addEventListener("message", function(event) {
+            if (event.data === "resize-iframe") {
+                document.getElementById("slide").style.height = event.source.document.body.scrollHeight + "px";
+            }
+        });
+
+        document.getElementById('slide').addEventListener('load', function() {
+            this.contentWindow.postMessage("resize-iframe", "*");
+        });
+    </script>
+</body>
+</html>
+
+<!-- 
+"https://www.msn.com/es-ar",
+"https://www.google.com/search?q=google&rlz=1C1ONGR_esAR1017AR1017&oq=goo&gs_lcrp=EgZjaHJvbWUqBwgBEAAYjwIyBggAEEUYOTIHCAEQABiPAjIHCAIQABiPAjIHCAMQABiPAjIGCAQQRRhBMgYIBRBFGEEyBggGEEUYQTIGCAcQRRg80gEIMTg2NGowajSoAgCwAgA&sourceid=chrome&ie=UTF-8",
+"https://pixeldrain.com/api/file/P8PiUKhj",
+"https://pixeldrain.com/api/file/3yRNyvtb",
+"https://pixeldrain.com/api/file/MjXAQvFn",
+"https://pixeldrain.com/api/file/Cpu3AsJe",
+"https://pixeldrain.com/api/file/ELDFzA3E",
+"https://pixeldrain.com/api/file/gmKfYHog",
+"https://pixeldrain.com/api/file/yeLbM5Rs",
+"https://pixeldrain.com/api/file/qFkN1FeJ",
+"https://pixeldrain.com/api/file/skauf8WA",
+"https://pixeldrain.com/api/file/xtjG6Ji5",
+"https://pixeldrain.com/api/file/4R8s9Hdd", -->
