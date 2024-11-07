@@ -6,123 +6,154 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrusel de Imágenes</title>
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-        }
-
-        .carousel {
-            position: relative;
-            width: 80%;
-            /*width: 100vh;*/
-            max-width: 600px;
-            overflow: hidden;
-        }
-
-        .carousel img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .carousel .buttons {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-        }
-
-        .carousel button {
-            background-color: rgba(0, 0, 0, 0.5);
-            border: none;
-            color: white;
-            padding: 10px;
-            cursor: pointer;
-        }
-    </style>
+        /* body {
+             font-family: Arial, sans-serif;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             height: 100vh;
+             margin: 0;
+             background-color: #f0f0f0;
+         }*/
+         
+         .gallery {
+             display: flex;
+             flex-wrap: wrap;
+             gap: 10px;
+         }
+         
+         .gallery-item {
+             width: 100%;
+             max-width: 200px;
+             cursor: pointer;
+             border-radius: 5px;
+             transition: transform 0.2s;
+         }
+         
+         .gallery-item:hover {
+             transform: scale(1.05);
+         }
+         
+         .modal {
+             display: none;
+             position: fixed;
+             z-index: 1;
+             padding-top: 60px;
+             left: 0;
+             top: 0;
+             width: 100%;
+             height: 100%;
+             overflow: auto;
+             background-color: rgb(0,0,0);
+             background-color: rgba(0,0,0,0.9);
+         }
+         
+         .modal-content {
+             margin: auto;
+             display: block;
+             width: 80%;
+             max-width: 700px;
+         }
+         
+         .close {
+             position: absolute;
+             top: 15px;
+             right: 35px;
+             color: #f1f1f1;
+             font-size: 40px;
+             font-weight: bold;
+             transition: 0.3s;
+         }
+         
+         .close:hover,
+         .close:focus {
+             color: #bbb;
+             text-decoration: none;
+             cursor: pointer;
+         }
+         
+      </style>
+     
 </head>
 
 <body>
     <div class="carousel">
         <!-- <img src="https://pixeldrain.com/api/file/AKokDEbD" alt="Imagen 1">
         <img src="https://pixeldrain.com/api/file/Cforj9s4" alt="Imagen 2" style="scale: 0.5;display: none;">
-        <img src="https://pixeldrain.com/api/file/aCH59SXM" alt="Imagen 3" style="display: none;"> -->
+        <img src="https://pixeldrain.com/api/file/aCH59SXM" alt="Imagen 3" class=	gallery-item> -->
     
 
-        <img src="https://pixeldrain.com/api/file/cXY5YHYY" alt="Imagen 1 "> 
-        <!-- <img src="https://pixeldrain.com/api/file/HRrmifb5" alt="Imagen 2 " style="display: none;">  -->
-        <img src="https://pixeldrain.com/api/file/h3zTgkyB" alt="Imagen 3 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/XizQk5BD" alt="Imagen 4 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/7crFgoyW" alt="Imagen 5 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/PGLzhscT" alt="Imagen 6 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/VdWcmbhQ" alt="Imagen 7 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/nxz62nVM" alt="Imagen 8 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/rweNW7Zg" alt="Imagen 9 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/DoQSGH5r" alt="Imagen 10 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/NNnPZhWi" alt="Imagen 11 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/LBe8Lr9n" alt="Imagen 12 " style="display: none;"> 
-        <!-- <img src="https://pixeldrain.com/api/file/w2e77xHQ" alt="Imagen 13 " style="display: none;">  -->
-        <img src="https://pixeldrain.com/api/file/Q66fy5YX" alt="Imagen 14 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/nfuNaJrA" alt="Imagen 15 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/Ag71rL7v" alt="Imagen 16 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/kir6eW4r" alt="Imagen 17 " style="display: none;"> 
-        <!-- <img src="https://pixeldrain.com/api/file/KmUgdok3" alt="Imagen 18 " style="display: none;">  -->
-        <img src="https://pixeldrain.com/api/file/mtTZZxKt" alt="Imagen 19 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/dXSXbErx" alt="Imagen 20 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/9W9tS8Aq" alt="Imagen 21 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/xN7hdtH5" alt="Imagen 22 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/wjRjP75a" alt="Imagen 23 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/gEBtk4vN" alt="Imagen 24 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/JnE2W3Jq" alt="Imagen 25 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/WLNQhQ75" alt="Imagen 26 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/n7KXWUWA" alt="Imagen 27 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/yioPEw6Z" alt="Imagen 28 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/Mg7pNGz1" alt="Imagen 29 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/NPzf97Nv" alt="Imagen 30 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/xq39gy1g" alt="Imagen 31 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/Pb7fn62J" alt="Imagen 32 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/tf7tTrfh" alt="Imagen 33 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/hiqieaLS" alt="Imagen 34 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/8yoZP8uw" alt="Imagen 35 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/tMS81FsR" alt="Imagen 36 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/ML5hwRxp" alt="Imagen 37 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/BqJVxm7P" alt="Imagen 38 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/REpAWKyJ" alt="Imagen 39 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/XBgvnc9D" alt="Imagen 40 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/D9cFiFZS" alt="Imagen 41 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/WRXk9oBY" alt="Imagen 42 " style="display: none;"> 
-        <img src="https://pixeldrain.com/api/file/UzF6aHtn" alt="Imagen 43 " style="display: none;"> 
+        <!-- <img src="https://pixeldrain.com/api/file/cXY5YHYY" alt="Imagen 1 ">  -->
+        <img src="https://pixeldrain.com/api/file/cXY5YHYY" alt="Imagen 1 "class=	gallery-item> 
+        <!-- <img src="https://pixeldrain.com/api/file/HRrmifb5" alt="Imagen 2 " class=	gallery-item>  -->
+        <img src="https://pixeldrain.com/api/file/h3zTgkyB" alt="Imagen 3 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/XizQk5BD" alt="Imagen 4 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/7crFgoyW" alt="Imagen 5 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/PGLzhscT" alt="Imagen 6 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/VdWcmbhQ" alt="Imagen 7 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/nxz62nVM" alt="Imagen 8 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/rweNW7Zg" alt="Imagen 9 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/DoQSGH5r" alt="Imagen 10 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/NNnPZhWi" alt="Imagen 11 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/LBe8Lr9n" alt="Imagen 12 " class=	gallery-item> 
+        <!-- <img src="https://pixeldrain.com/api/file/w2e77xHQ" alt="Imagen 13 " class=	gallery-item>  -->
+        <img src="https://pixeldrain.com/api/file/Q66fy5YX" alt="Imagen 14 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/nfuNaJrA" alt="Imagen 15 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/Ag71rL7v" alt="Imagen 16 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/kir6eW4r" alt="Imagen 17 " class=	gallery-item> 
+        <!-- <img src="https://pixeldrain.com/api/file/KmUgdok3" alt="Imagen 18 " class=	gallery-item>  -->
+        <img src="https://pixeldrain.com/api/file/mtTZZxKt" alt="Imagen 19 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/dXSXbErx" alt="Imagen 20 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/9W9tS8Aq" alt="Imagen 21 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/xN7hdtH5" alt="Imagen 22 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/wjRjP75a" alt="Imagen 23 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/gEBtk4vN" alt="Imagen 24 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/JnE2W3Jq" alt="Imagen 25 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/WLNQhQ75" alt="Imagen 26 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/n7KXWUWA" alt="Imagen 27 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/yioPEw6Z" alt="Imagen 28 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/Mg7pNGz1" alt="Imagen 29 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/NPzf97Nv" alt="Imagen 30 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/xq39gy1g" alt="Imagen 31 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/Pb7fn62J" alt="Imagen 32 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/tf7tTrfh" alt="Imagen 33 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/hiqieaLS" alt="Imagen 34 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/8yoZP8uw" alt="Imagen 35 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/tMS81FsR" alt="Imagen 36 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/ML5hwRxp" alt="Imagen 37 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/BqJVxm7P" alt="Imagen 38 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/REpAWKyJ" alt="Imagen 39 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/XBgvnc9D" alt="Imagen 40 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/D9cFiFZS" alt="Imagen 41 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/WRXk9oBY" alt="Imagen 42 " class=	gallery-item> 
+        <img src="https://pixeldrain.com/api/file/UzF6aHtn" alt="Imagen 43 " class=	gallery-item> 
         
-
-        <div class="buttons">
-            <button id="prev">
-                < Anterior</button>
-                    <button id="next">Siguiente ></button>
+        <div id="modal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="modal-img">
+            <div id="caption"></div>
         </div>
-    </div>
-       
-    <script>
-        const images = document.querySelectorAll('.carousel img');
-        let currentIndex = 0;
-
-        document.getElementById('next').addEventListener('click', () => {
-            images[currentIndex].style.display = 'none';
-            currentIndex = (currentIndex + 1) % images.length;
-            images[currentIndex].style.display = 'block';
+    
+        <!-- <script src="scripts.js"></script> -->
+        <!-- <script src="scripts.js"></script> -->
+        <script>
+            const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    const captionText = document.getElementById('caption');
+    
+    document.querySelectorAll('.gallery-item').forEach(item => {
+        item.addEventListener('click', () => {
+            modal.style.display = 'block';
+            modalImg.src = item.src;
+            captionText.innerHTML = item.alt;
         });
-
-        document.getElementById('prev').addEventListener('click', () => {
-            images[currentIndex].style.display = 'none';
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            images[currentIndex].style.display = 'block';
-        });
-    </script>
+    });
+    
+    document.querySelector('.close').addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+    
+        </script>
 </body>
 
 </html>
