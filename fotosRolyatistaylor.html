@@ -6,184 +6,124 @@
     <title>Galería de Imágenes</title>
     <!-- <link rel="stylesheet" href="styles.css"> -->
 
-    
-    
-    <style>
-         /*
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-        }
-        */
-        
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .gallery-item {
-            width: 100%;
-            max-width: 200px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: transform 0.2s;
-        }
-        
-        .gallery-item:hover {
-            transform: scale(1.05);
-        }
-        
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            padding-top: 60px;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgb(0,0,0);
-            background-color: rgba(0,0,0,0.9);
-        }
-        
-        .modal-content {
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 700px;
-        }
-        
-        .close {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        
-        .close:hover,
-        .close:focus {
-            color: #bbb;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        
-     </style>
 </head>
 <body style="background-color: black;">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="gallery" style=>
-        <img src=	https://pixeldrain.com/api/file/DpEP13Xw	 alt=	Imagen 1	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/mJbZiGe7	 alt=	Imagen 2	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/KWfdAEbh	 alt=	Imagen 3	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/Z254Ht5b	 alt=	Imagen 4	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/pQYA1F6H	 alt=	Imagen 5	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/jCFAnXYn	 alt=	Imagen 6	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/zdi6bRF5	 alt=	Imagen 7	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/mX1XDmjf	 alt=	Imagen 8	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/T3ZAveBb	 alt=	Imagen 9	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/kWX2ZqFd	 alt=	Imagen 10	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/CgTw1fEy	 alt=	Imagen 11	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/9rrxVDk8	 alt=	Imagen 12	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/pWPm841L	 alt=	Imagen 13	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/jp14UbzF	 alt=	Imagen 14	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/VQLsWu6f	 alt=	Imagen 15	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/BQCAPa1N	 alt=	Imagen 16	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/fFQc8RP8	 alt=	Imagen 17	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/Z7nBENub	 alt=	Imagen 18	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/fjPpPHha	 alt=	Imagen 19	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/VWuAcCdc	 alt=	Imagen 20	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/Gra8Bnnh	 alt=	Imagen 21	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/BWYUxhdR	 alt=	Imagen 22	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/EcpeoYop	 alt=	Imagen 23	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/fjDffVAa	 alt=	Imagen 24	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/8PvVh68L	 alt=	Imagen 25	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/ToxNhbyf	 alt=	Imagen 26	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/gCuGsCjC	 alt=	Imagen 27	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/t4JieM3y	 alt=	Imagen 28	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/nimZDX83	 alt=	Imagen 29	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/zh4KzW9w	 alt=	Imagen 30	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/RfouZ2W2	 alt=	Imagen 31	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/mcG99bL5	 alt=	Imagen 32	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/g5LPWE1z	 alt=	Imagen 33	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/w4PLbRBg	 alt=	Imagen 34	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/TJeZNSsz	 alt=	Imagen 35	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/mLUzxgex	 alt=	Imagen 36	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/BxRVSJQb	 alt=	Imagen 37	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/Gh6Pc1FS	 alt=	Imagen 38	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/Qdn7aKFQ	 alt=	Imagen 39	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/d72X1CWh	 alt=	Imagen 40	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/jXSFNJ1x	 alt=	Imagen 41	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/ZZHRVRVy	 alt=	Imagen 42	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/wUkxa3wU	 alt=	Imagen 43	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/tcktL9UD	 alt=	Imagen 44	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/Y8EpJQfg	 alt=	Imagen 45	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/VqAAZrEG	 alt=	Imagen 46	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/qUTyNuhB	 alt=	Imagen 47	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/gwtzQJd5	 alt=	Imagen 48	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/pxYcNN1M	 alt=	Imagen 49	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/8nYW2cTx	 alt=	Imagen 50	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/gcsGsy6j	 alt=	Imagen 51	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/8YtcWHUX	 alt=	Imagen 52	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/UNimFASa	 alt=	Imagen 53	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/9pHP1xMW	 alt=	Imagen 54	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/jPfmN7nx	 alt=	Imagen 55	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/cUwwgLiP	 alt=	Imagen 56	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/qE2XWhZC	 alt=	Imagen 57	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/9qGfJSoD	 alt=	Imagen 58	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/cM3ASmUF	 alt=	Imagen 59	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/7FhbBb9o	 alt=	Imagen 60	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/NEABMJ6j	 alt=	Imagen 61	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/JdrRFx1y	 alt=	Imagen 62	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/JBbmZx5G	 alt=	Imagen 63	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/83yoGsK7	 alt=	Imagen 64	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/zogS7XYp	 alt=	Imagen 65	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/pMAm4tvD	 alt=	Imagen 66	 class=	gallery-item	>
-        <img src=	https://pixeldrain.com/api/file/ZLSre9vR	 alt=	Imagen 67	 class=	gallery-item	>
-       
-    </div>
-
-    <div id="modal" class="modal">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="modal-img">
-        <div id="caption"></div>
-    </div>
-
-    <!-- <script src="scripts.js"></script> -->
-    <!-- <script src="scripts.js"></script> -->
-    <script>
-        const modal = document.getElementById('modal');
-const modalImg = document.getElementById('modal-img');
-const captionText = document.getElementById('caption');
-
-document.querySelectorAll('.gallery-item').forEach(item => {
-    item.addEventListener('click', () => {
-        modal.style.display = 'block';
-        modalImg.src = item.src;
-        captionText.innerHTML = item.alt;
-    });
-});
-
-document.querySelector('.close').addEventListener('click', () => {
-    modal.style.display = 'none';
-});
-
-    </script>
+    <a href="https://pixeldrain.com/api/file/WJsBTikS">	"analisis
+        5-02. Algoritmo K-Nearest Neighbors @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/Tnf8jt4Z">	"analisis
+        5-03. Ejemplo de KNN @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/gXLrvGqQ">	"analisis
+        5-04. K-Nearest Neighbours (KNN) con python @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/wvTWf8TC">	"analisis
+        5-05. Implementación en Python Importación de las bibliotecas necesarias @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/aydgPbqP">	"analisis
+        5-06. Implementación en Python Importación del conjunto de datos @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/aLEW8hQT">	"analisis
+        5-07. Implementación en Python División de los datos en conjuntos de ensayo y prueba @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/bYFrcbyg">	"analisis
+        5-08. Implementación en Python Escalado de características @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/tPZiX5AF">	"analisis
+        5-09. Implementación en Python Importación del clasificador KNN @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/Mq7UUcrV">	"analisis
+        5-10. Implementación en Python Predicción de resultados y matriz de confusión @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/nReVtm6Z">	"analisis
+        6-1. Introducción a los Árboles de Decisión @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/cRD25s1z">	"analisis
+        6-2. ¿Qué es la Entropía @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/xijBuv25">	"analisis
+        6-3. Exploración del conjunto de datos @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/i3hMLmce">	"analisis
+        6-4. Estructura del Árbol de Decisión @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/ppWXqtPs">	"analisis
+        6-5. Implementación en Python Importación de bibliotecas y conjuntos de datos @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/hLsMzvkM">	"analisis
+        6-6. Implementación en Python Codificación de datos categóricos @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/5SVe4NVc">	"analisis
+        6-7. Implementación en Python División de datos en conjuntos entrenamiento y prueba @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/Ra87SWgh">	"analisis
+        6-8. Implementación en Python Predicción de resultados y precisión @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/YRnphcJv">	"analisis
+        7-1. Introducción @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/Fx8jizxh">	"analisis
+        7-2. Pasos de implementación @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/NT2kcGWu">	"analisis
+        7-3. Implementación en Python Importación de bibliotecas y conjuntos de datos @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/NzfYJtPT">	"analisis
+        7-4. Implementación en Python División de los datos en conjuntos de ensayo y prueba @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/k94V5cHX">	"analisis
+        7-5. Implementación en Python Pre-procesamiento @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/dth4nQ5g">	"analisis
+        7-6. Implementación en Python Entrenamiento del modelo @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/xAaj65f4">	"analisis
+        7-7. Implementación en Python Predicción de resultados y matriz de confusión @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/8otS5Zby">	"analisis
+        7-8. Regresión logística vs Regresión lineal @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/TewSRMRF">	"analisis
+        8-01. Introducción al clustering @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/7BP5uFJJ">	"analisis
+        8-02. Casos prácticos @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/agyPH6Mi">	"analisis
+        8-03. Algoritmo de clustering K-Means @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/TCosk8wG">	"analisis
+        8-04. Método Elbow @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/Vp2Cb4c2">	"analisis
+        8-05. Pasos del método Elbow @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/RdujKtbK">	"analisis
+        8-06. Implementación en Python @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/k8judZHj">	"analisis
+        8-07. Clustering jerárquico @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/ik94SQeG">	"analisis
+        8-08. Clustering basado en la densidad @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/KaH71MfT">	"analisis
+        8-09. Implementación del clustering k-means en Python @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/f55vQWo4">	"analisis
+        8-10. Importación del conjunto de datos @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/tkw9Q3vm">	"analisis
+        8-11. Visualización del conjunto de datos @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/wPxm1b2k">	"analisis
+        8-12. Definir el clasificador @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/4W9Znw9j">	"analisis
+        8-13. Visualización 3D de los clusters @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/UuEF5xsv">	"analisis
+        8-14. Visualización 3D de los valores predichos @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/Rnv3TpGV">	"analisis
+        8-15. Número de clusters predichos @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/Kq6CXFnY">	"analisis
+        9-01. Introducción @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/am5CTD7q">	"analisis
+        9-02. El filtrado colaborativo en los sistemas de recomendación @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/HLUmsmQe">	"analisis
+        9-03. Sistema de recomendación basado en contenidos @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/BeFqdFRq">	"analisis
+        9-04. Implementación en Python Importación de bibliotecas y conjuntos de datos @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/MsAYZrcU">	"analisis
+        9-05. Fusión de conjuntos de datos en un marco de datos @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/ueeWXsJ8">	"analisis
+        9-06. Clasificación por título y puntuación @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/PvBDrhnT">	"analisis
+        9-07. Histograma del número de valoraciones @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/vXoJBDim">	"analisis
+        9-08. Distribución de frecuencias @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/R2fvWWbg">	"analisis
+        9-09. Gráfico conjunto de las valoraciones y el número de valoraciones @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/CzWnDmEj">	"analisis
+        9-10. Preprocesamiento de datos @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/Kx9QF4US">	"analisis
+        9-11. Clasificación de las películas más valoradas @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/fYoJEqNW">	"analisis
+        9-12. Obtención de las valoraciones de dos películas @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/PYxzFma9">	"analisis
+        9-13. Correlación entre las películas más valoradas @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/5busRpDb">	"analisis
+        9-14. Ordenación de los datos por correlación @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/m3fMHGhr">	"analisis
+        9-15. Filtrado de películas @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/T6XBn1gx">	"analisis
+        9-16. Ordenar valores @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/Y9JwqqE2">	"analisis
+        9-17. Repetición del proceso para otra película @PiracyPoNy.mp4"	</a>  	<br>
+        <a href="https://pixeldrain.com/api/file/JzioPjPt">	"analisis
+        10-1. Conclusión @PiracyPoNy.mp4"	</a>  	<br>
+        
 </body>
 </html>
