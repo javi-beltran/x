@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Slide de Iframes</title>
+    <style>
+        iframe {
+            width: 100%;
+            border: none;
+        }
+        .buttons {
+            margin-top: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .url-display {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="buttons">
+        <button onclick="prevSlide()">Anterior</button>
+        <button onclick="nextSlide()">Siguiente</button>
+    </div>
+    <div class="url-display">
+        <p id="current-url">URL: https://example1.com</p>
+    </div>
+    <iframe id="slide" src="https://example1.com" style="height: 1700px;width: 100%;"></iframe>
+
+    <script>
+        const sites = [
+           "https://www.msn.com/es-ar",
+        "https://www.google.com/search?q=google&rlz=1C1ONGR_esAR1017AR1017&oq=goo&gs_lcrp=EgZjaHJvbWUqBwgBEAAYjwIyBggAEEUYOTIHCAEQABiPAjIHCAIQABiPAjIHCAMQABiPAjIGCAQQRRhBMgYIBRBFGEEyBggGEEUYQTIGCAcQRRg80gEIMTg2NGowajSoAgCwAgA&sourceid=chrome&ie=UTF-8",
+       "https://u.pcloud.link/publink/show?code=XZxpwu5ZegGiR3AoL0yi46FtrnYHnygi4uTX",
+"https://u.pcloud.link/publink/show?code=XZGpwu5Zti1UOD8ujL8FOXazWv1Jyhjvz8Vk",
+"https://u.pcloud.link/publink/show?code=XZipwu5Zrr9NSCtMiBXWTXPRrv1EVLcIVz2k",
+"https://u.pcloud.link/publink/show?code=XZopwu5ZLI1XL6zXj0kk7Sy3Os5Ph4zkiu07",
+"https://u.pcloud.link/publink/show?code=XZyHwu5ZYrkdI0K53xFOMPvADzHijHzcLzby",
+"https://u.pcloud.link/publink/show?code=XZXHwu5ZuTfk0D0rUgFLyqxrmvQ5n5hw77z7",
+"https://u.pcloud.link/publink/show?code=XZ0Hwu5ZXxsjubzhPqF1RYO4MezWqkeERlky",
+"https://u.pcloud.link/publink/show?code=XZmHwu5Z8RnOzTl2uNhXItFvS1As5bkiKpYX",
+"https://u.pcloud.link/publink/show?code=XZbHwu5ZTbufImmYhVy2W3HAzJQ3vpCoUt8V",
+"https://u.pcloud.link/publink/show?code=XZSHwu5Z5AyJl2W2AJk6C95Fq4HLl80pa80V",
+"https://u.pcloud.link/publink/show?code=XZjHwu5Ze4KaHqNR1fygIa5OTkapbbE054NV",
+"https://u.pcloud.link/publink/show?code=XZuHwu5ZQiBdv8z8thYJffAHN9wKT5o7qaDV",
+"https://u.pcloud.link/publink/show?code=XZsHwu5ZXi9ueTqjEbF96DaNJ629NbtLncFk",
+"https://u.pcloud.link/publink/show?code=XZ1Hwu5Z9R6NxGmP8yXu9iLeLNUKhbK2yAV0",
+"https://u.pcloud.link/publink/show?code=XZlHwu5ZMovntB7L27j7J7mOxyuguVRkWjxk",
+"https://u.pcloud.link/publink/show?code=XZqHwu5Z83QMvqHqVvQbOJaqtPvKRLztUoLk",
+"https://u.pcloud.link/publink/show?code=XZUHwu5Z6hjB7nQHzLQ1O7flKvTX4fmHxYuk",
+"https://u.pcloud.link/publink/show?code=XZaHwu5ZpPifSzYMsSppI86RIAVY9Bq9Ypu7",
+"https://u.pcloud.link/publink/show?code=XZ3Hwu5ZocPoBzJ7r30SqHazvDtqvf8yuCqV",
+"https://u.pcloud.link/publink/show?code=XZGHwu5ZRkXEW4eigHSrmEp10I1kh8A47j4y",
+"https://u.pcloud.link/publink/show?code=XZvHwu5ZH4lBN588J0LSWfHMq8iUuJvQGiPk",
+"https://u.pcloud.link/publink/show?code=XZoHwu5ZW7Ic0MXxOzuxHowWRwBvfbCXEv3X",
+"https://u.pcloud.link/publink/show?code=XZ7zwu5ZkdCqoHmV0k7aKDxMgUG3ozJ6uq8y",
+"https://u.pcloud.link/publink/show?code=XZkzwu5Zj3Y5tVmUi4HSROIjbskMsjfbFjJ7",
+"https://u.pcloud.link/publink/show?code=XZXzwu5ZjRMlENSCvnJm5jhhQMUp47LJ9XGV",
+"https://u.pcloud.link/publink/show?code=XZ0zwu5ZwYv6NSTWlxynaqI7M7333JlLUeS7",
+"https://u.pcloud.link/publink/show?code=XZJzwu5ZDSRC3DT8NGhF8Okohufb9hoRPMDX",
+"https://u.pcloud.link/publink/show?code=XZFzwu5ZoiXoMCwAnojUDisisezy8ByiTinV",
+"https://u.pcloud.link/publink/show?code=XZHzwu5ZOqOyfsTOtThd2gM7Y9IuEXmyVz4y",
+"https://u.pcloud.link/publink/show?code=XZRzwu5ZO5f1aYuIKLf65Wp1sXGxvpO1EXsy",
+"https://u.pcloud.link/publink/show?code=XZLzwu5ZlKPWQdkfMKHj7IXEpIjbJznDK0SV",
+"https://u.pcloud.link/publink/show?code=XZ4zwu5Z3TDbt0F2B9JssrMkNhncQjoavtbV",
+"https://u.pcloud.link/publink/show?code=XZszwu5Z0KR1hxTtUKfSdAB8SNAOEQHKw3Ky",
+"https://u.pcloud.link/publink/show?code=XZDzwu5ZRsHmL0Gyk2LlOfJDORV7MJiAKydX",
+"https://u.pcloud.link/publink/show?code=XZwhwu5ZorWlygd3XmQuzwlM6cxB6VND93iX",
+"https://u.pcloud.link/publink/show?code=XZ6hwu5Z4sVfH9rKLUbJ2dLIjpxaj4Rzto8k",
+"emma kotos-new_masturbation_vid @nectg.mp4",
+"https://u.pcloud.link/publink/show?code=XZQSwu5ZtBjcCf1r1e7eUAd6e6sMXzmgULi7",
+"https://u.pcloud.link/publink/show?code=XZlSwu5ZkB206ACDxEY4J8lIHiniA7jVDdqk",
+"https://u.pcloud.link/publink/show?code=XZJjwu5ZWdf7F2XHixuWTJBdOG96hVrypW1y",
+"https://u.pcloud.link/publink/show?code=XZnjwu5ZyY2nBU0Osa0sWIXCheAbKSy86MmX",
+"https://u.pcloud.link/publink/show?code=XZijwu5ZP6iedAzoTtSdI9UdcdBw0miGWKJV",
+"https://u.pcloud.link/publink/show?code=XZtuwu5ZfVf2KgBybQXIH2rKGNoSxjTxtMYX",
+"https://u.pcloud.link/publink/show?code=XZWfwu5ZSnKyBSFqQbzNmNnUP54n9Q6ymag7",
+"https://u.pcloud.link/publink/show?code=XZsBwu5ZAvjYakNtwif9GkfbVSxzxS6C2QJX",
+"https://u.pcloud.link/publink/show?code=XZWBwu5Zv1F13WBvXPS03M34FzQcqQ7oQBSV",
+"https://u.pcloud.link/publink/show?code=XZKBwu5Z35asvKgj0n4YV72lhwSGr5e8E2L7",
+"https://u.pcloud.link/publink/show?code=XZdBwu5ZLTT1n6m0EN0lJbBQbQfpvfvoDb67",
+"https://u.pcloud.link/publink/show?code=XZJ2wu5ZfiznrGMXlA7IHquVvoC0pLh4R7qX",
+"https://u.pcloud.link/publink/show?code=XZzWwu5ZonkLge8vj97xUd29aG9sRYbkDQvk",
+"https://u.pcloud.link/publink/show?code=XZCWwu5ZuAho54mfDvV2lrqOjWK1sYaN6mgk",
+"https://u.pcloud.link/publink/show?code=XZNWwu5ZrmmgnSj4uhBKPLBxikJYzHVwDnHX",
+"https://u.pcloud.link/publink/show?code=XZmswu5ZcISq3UTAkR7tLW58K9ub3JMPDqvX",
+"https://u.pcloud.link/publink/show?code=XZhswu5ZiQcwSAku9Ez60s3hKzxImpXhNza7",
+"https://u.pcloud.link/publink/show?code=XZIswu5Z8NNAteC6fDja4KGDM1otdyb0H8n7",
+"https://u.pcloud.link/publink/show?code=XZ3swu5ZMKAp1j0SHL5iyiDSMhgi20nLt3q7",
+"https://u.pcloud.link/publink/show?code=XZzDwu5ZyC3E4cONPMQ4SB1fvOghCFrmItBX",
+"https://u.pcloud.link/publink/show?code=XZBDwu5ZkKRocgv4NU8pK0C5r7K1bj6iBeFy",
+"https://u.pcloud.link/publink/show?code=XZlDwu5ZBAFdgw2a9PVxDLzSLfpOrSbI9HPX",
+"https://u.pcloud.link/publink/show?code=XZcDwu5ZbaxqnCVmeI7xgJYQPtFQeLa3es6y",
+"https://u.pcloud.link/publink/show?code=XZz1wu5ZmB1Hq0xfXqYAT8te3sHpGSyHpMX7",
+"https://u.pcloud.link/publink/show?code=XZw1wu5ZRmTVoGvJLxJvzObGvfrRryXr4LM7",
+"https://u.pcloud.link/publink/show?code=XZv1wu5ZKgBOeGKbO8L3y1RlV4uMkLcggK6k",
+
+
+        ];
+
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            const iframe = document.getElementById('slide');
+            iframe.src = sites[index];
+            document.getElementById('current-url').innerText = 'URL: ' + sites[index];
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % sites.length;
+            showSlide(currentIndex);
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + sites.length) % sites.length;
+            showSlide(currentIndex);
+        }
+        function resizeIframe(obj) {
+            obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+        }
+    </script>
+</body>
+</html>
+
+              
+
+
+        
